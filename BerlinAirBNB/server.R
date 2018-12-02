@@ -18,7 +18,8 @@ shinyServer(function(input, output) {
    })
    
    output$mymap <- renderLeaflet({
-     df <- data() 
+     df <- data() %>% 
+       filter(neighbourhood == input$neighbourhood)
      m <- leaflet() %>%
        addTiles() %>%
       addMarkers(lng = df$longitude,
@@ -32,7 +33,8 @@ shinyServer(function(input, output) {
    })
    
    output$berlin_data <- renderTable({
-     neighbourhoodFilter <- subset(berlin_data, berlin_data$neighbourhood == input$neighbourhood)
+     neighbourhoodFilter <- subset(berlin_data,
+                                   berlin_data$neighbourhood == input$neighbourhood)
    })
   
 })
