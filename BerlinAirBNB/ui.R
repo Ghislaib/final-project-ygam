@@ -17,11 +17,13 @@ ui <- dashboardPage(
   skin = "red",
   dashboardHeader(title = "Berlin Airbnb"),
   dashboardSidebar(
-    selectInput("neighbourhood", "Select a neighbourhood", choices = berlin_data$neighbourhood),
+    selectInput("neighbourhood", "Select a neighbourhood", choices = (berlin_data$neighbourhood),
+                selected = "Mitte"
+                ),
     sliderInput("price_range", label = "Price Range",
                 min = min(df$price),
                 max = max(df$price),
-                value = c(min(df$price), max(df$price)),
+                value = c(min, max),
                 sep = "",
                 step = 1)
     ),
