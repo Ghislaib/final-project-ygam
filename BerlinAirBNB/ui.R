@@ -41,6 +41,12 @@ ui <- dashboardPage(
                 max = max(df$price),
                 value = c(min, max),
                 sep = "",
+                step = 1),
+    sliderInput("min_nights", label = "Minimum Nights",
+                min = min(df$minimum_nights),
+                max = max(df$minimum_nights),
+                value = c(min, max),
+                sep = "",
                 step = 1)
     ),
   dashboardBody(

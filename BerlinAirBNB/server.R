@@ -6,6 +6,7 @@ library(rgdal)
 
 df <- read.csv("listings.csv", stringsAsFactors = FALSE)
 
+
 berlin_data <- df %>% 
   select(neighbourhood, host_name, price, reviews_per_month, room_type, minimum_nights)
 
@@ -21,7 +22,9 @@ shinyServer(function(input, output) {
      df <- data() %>% 
        filter(neighbourhood == input$neighbourhood,
               price >= input$price_range[1],
-              price <= input$price_range[2])
+              price <= input$price_range[2],
+              minimum_nights >= input$min_nights[1],
+              minimum_nights <= input$min_nights[2])
      m <- leaflet() %>%
        addTiles() %>%
       addMarkers(lng = df$longitude,
