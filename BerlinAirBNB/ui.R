@@ -10,23 +10,7 @@ df <- read.csv("listings.csv", stringsAsFactors = FALSE)
 
 
 berlin_data <- df %>% 
-  select(neighbourhood, host_name, price, reviews_per_month, room_type)
-
-# # Define UI for application that draws a histogram
-# shinyUI(fluidPage(
-#   
-#   # Application title
-#   titlePanel("Berlin Airbnb"),
-#   
-#   # Sidebar with a slider input for number of bins 
-#   leafletOutput("mymap",height = 1000)
-#   
-#     )
-#     
-#     # Show a plot of the generated distribution
-#     # mainPanel(
-#     # )
-#   )
+  select(neighbourhood, host_name, price, reviews_per_month, room_type, minimum_nights)
 
 
 ui <- dashboardPage(
