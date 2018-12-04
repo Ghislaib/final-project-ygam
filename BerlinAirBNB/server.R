@@ -42,6 +42,7 @@ shinyServer(function(input, output) {
                                    berlin_data$neighbourhood == input$neighbourhood,
                                    berlin_data$price >= input$price_range[1],
                                    berlin_data$price <= input$price_range[2])
+     
    })
   
 })
