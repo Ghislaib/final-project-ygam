@@ -14,7 +14,7 @@ berlin_data <- df %>%
 
 
 ui <- dashboardPage(
-  skin = "red",
+  skin = "blue",
   dashboardHeader(title = "Berlin Airbnb"),
   dashboardSidebar(
     selectInput("neighbourhood", "Select a neighbourhood", choices = unique(berlin_data$neighbourhood),
@@ -31,7 +31,12 @@ ui <- dashboardPage(
                 sep = "",
                 step = 1),
     selectInput("room_type", "Room Type", choices = unique(berlin_data$room_type),
-                selected = "Private room")
+                selected = "Private room"),
+    sliderInput("average_reviews", label = "Average Reviews per Month",
+                0, 35,
+                value = c(0, 35),
+                sep = "",
+                step = 1)
     ),
   dashboardBody(
     fluidRow(box(width = 12, leafletOutput(outputId = "mymap"))),
