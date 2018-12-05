@@ -24,7 +24,8 @@ shinyServer(function(input, output) {
               price >= input$price_range[1],
               price <= input$price_range[2],
               minimum_nights >= input$min_nights[1],
-              minimum_nights <= input$min_nights[2])
+              minimum_nights <= input$min_nights[2],
+              room_type == input$room_type)
      m <- leaflet() %>%
        addTiles() %>%
       addMarkers(lng = df$longitude,
@@ -41,8 +42,10 @@ shinyServer(function(input, output) {
      neighbourhoodFilter <- filter(berlin_data,
                                    berlin_data$neighbourhood == input$neighbourhood,
                                    berlin_data$price >= input$price_range[1],
-                                   berlin_data$price <= input$price_range[2])
-     
+                                   berlin_data$price <= input$price_range[2],
+                                   berlin_data$room_type == input$room_type,
+                                   berlin_data$minimum_nights >= input$min_nights[1],
+                                   berlin_data$minimum_nights <= input$min_nights[2])
    })
   
 })

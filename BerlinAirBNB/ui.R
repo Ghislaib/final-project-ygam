@@ -17,7 +17,7 @@ ui <- dashboardPage(
   skin = "red",
   dashboardHeader(title = "Berlin Airbnb"),
   dashboardSidebar(
-    selectInput("neighbourhood", "Select a neighbourhood", choices = (berlin_data$neighbourhood),
+    selectInput("neighbourhood", "Select a neighbourhood", choices = unique(berlin_data$neighbourhood),
                 selected = "Mitte"
                 ),
     sliderInput("price_range", label = "Price Range $$",
@@ -29,7 +29,9 @@ ui <- dashboardPage(
                 0, 500,
                 value = c(0, 500),
                 sep = "",
-                step = 1)
+                step = 1),
+    selectInput("room_type", "Room Type", choices = unique(berlin_data$room_type),
+                selected = "Private room")
     ),
   dashboardBody(
     fluidRow(box(width = 12, leafletOutput(outputId = "mymap"))),
