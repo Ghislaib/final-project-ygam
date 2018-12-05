@@ -6,7 +6,7 @@
 **Due Date:** December 6, 2018 <br />
 **Project Name:** Airbnb in Berlin <br />
 
-#**Design** <br />
+**Design** <br />
 Our team used shiny apps to create a user interface which organizes Airbnb listings in Berlin by Neighborhood and Price. 
 After selecting a Neighborhood in Berlin, users can use the map to navigate and view the Airbnb's location. Along with 
 the geographial information, all the listings in the neighborhood are listed in a table below. This table tracks neighbourhood, 
